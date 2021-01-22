@@ -5,14 +5,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * 测试实体
+ * 实体Demo
  *
  * @author zengfanyong
  * @date 2021/1/21 22:55
  */
 @Data
 @AllArgsConstructor
-public class TestDomain {
+public class DemoDomain {
     /** 编号 */
     @ApiModelProperty(value = "编号")
     private final int id;

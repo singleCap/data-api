@@ -1,14 +1,14 @@
 package org.bibt.data.service;
 
-import org.bibt.data.domain.TestDomain;
+import org.bibt.data.domain.DemoDomain;
 
 /**
- * 测试服务
+ * 服务Demo
  *
  * @author zengfanyong
  * @date 2021/1/21 22:57
  */
-public interface TestService {
+public interface DemoService {
 
     /**
      * 测试domain
@@ -24,7 +24,7 @@ public interface TestService {
      * @return  Object
      *      实体
      */
-    int mybatisAdd(TestDomain domain);
+    int mybatisAdd(DemoDomain domain);
 
     /**
      * mybatis列表

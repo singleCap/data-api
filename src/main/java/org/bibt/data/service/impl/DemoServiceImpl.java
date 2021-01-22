@@ -1,36 +1,34 @@
 package org.bibt.data.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bibt.data.domain.TestDomain;
-import org.bibt.data.mapper.TestMapper;
-import org.bibt.data.service.TestService;
+import org.bibt.data.domain.DemoDomain;
+import org.bibt.data.mapper.DemoMapper;
+import org.bibt.data.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.SQLException;
-
 /**
- * 测试服务实现类
+ * 服务实现类Demo
  *
  * @author ZengFanyong
  * @date 2021/1/21
  */
 @Component
 @Slf4j
-public class TestServiceImpl implements TestService {
+public class DemoServiceImpl implements DemoService {
 
     @Autowired
-    private TestMapper testMapper;
+    private DemoMapper demoMapper;
 
     @Override
     public Object testDomain() {
-        return new TestDomain(111, "hello spring boot");
+        return new DemoDomain(111, "hello spring boot");
     }
 
     @Override
-    public int mybatisAdd(TestDomain domain) {
+    public int mybatisAdd(DemoDomain domain) {
         try {
-            testMapper.addDomain(domain);
+            demoMapper.addDomain(domain);
             return 0;
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -40,18 +38,18 @@ public class TestServiceImpl implements TestService {
 
     @Override
     public Object mybatisList() {
-        return testMapper.listDomain();
+        return demoMapper.listDomain();
     }
 
     @Override
     public Object mybatisGet(int id) {
-        return testMapper.getDomain(id);
+        return demoMapper.getDomain(id);
     }
 
     @Override
     public int mybatisUpdate(int id, String content) {
         try {
-            testMapper.updateDomain(id, content);
+            demoMapper.updateDomain(id, content);
             return 0;
         } catch (Exception e) {
             log.error(e.getMessage(), e);
@@ -62,7 +60,7 @@ public class TestServiceImpl implements TestService {
     @Override
     public int mybatisDelete(int id) {
         try {
-            testMapper.deleteDomain(id);
+            demoMapper.deleteDomain(id);
             return 0;
         } catch (Exception e) {
             log.error(e.getMessage(), e);

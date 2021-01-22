@@ -1,19 +1,19 @@
 package org.bibt.data.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.bibt.data.domain.TestDomain;
+import org.bibt.data.domain.DemoDomain;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * 测试映射
+ * 映射Demo
  *
  * @author zengfanyong
  * @date 2021/1/21 22:56
  */
 @Repository
-public interface TestMapper {
+public interface DemoMapper {
     /**
      * 增加实体
      *
@@ -22,7 +22,7 @@ public interface TestMapper {
      * @exception Exception
      *     错误
      */
-    void addDomain(TestDomain domain) throws Exception;
+    void addDomain(DemoDomain domain) throws Exception;
 
     /**
      * 列表实体
@@ -30,7 +30,7 @@ public interface TestMapper {
      * @return List<TestDomain>
      *      列表
      */
-    List<TestDomain> listDomain();
+    List<DemoDomain> listDomain();
 
     /**
      * 查询实体
@@ -40,7 +40,7 @@ public interface TestMapper {
      * @return List<TestDomain>
      *      列表
      */
-    TestDomain getDomain(@Param("id") int id);
+    DemoDomain getDomain(@Param("id") int id);
 
     /**
      * 更新实体
