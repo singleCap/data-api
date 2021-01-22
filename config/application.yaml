@@ -4,5 +4,3 @@ spring:
 #    proc
 #    test
 
-server:
-  port: 8888

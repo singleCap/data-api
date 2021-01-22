@@ -1,0 +1,52 @@
+# 服务配置
+server:
+  port: 8888
+  servlet:
+    context-path: /
+
+# mybatis配置
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: org.bibt.data.domain
+  configuration:
+    call-setters-on-nulls: true
+    return-instance-for-empty-row: true
+
+# 数据库配置
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://node02.bibt.com:3306/data_center?serverTimezone=UTC&characterEncoding=utf-8&useUnicode=true&useSSL=false
+    username: data_center
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #配置参考:https://github.com/alibaba/druid/wiki/%E9%85%8D%E7%BD%AE_DruidDataSource%E5%8F%82%E8%80%83%E9%85%8D%E7%BD%AE
+      #配置连接池初始化大小
+      initial-size: 10
+      #配置最小空闲连接
+      min-idle: 10
+      #最大空闲连接
+      max-active: 200
+      #获取连接等待超时时间ms
+      max-wait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接ms
+      time-between-eviction-runs-millis: 60000
+      #一个连接在池中最小生存时间 ms
+      min-evictable-idle-time-millis: 300000
+      #验证数据库连接的有效性
+      validation-query: SELECT 1
+      #不影响性能,申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      test-while-idle: true
+      #申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false
+      #归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      #在mysql下建议关闭
+      pool-prepared-statements: false
+      #缺省配置的wallFilter,防御SQL注入攻击
+      filter: wall
+      #是否自动回收超时连接  ，生成环境需关闭
+      remove-abandoned: false

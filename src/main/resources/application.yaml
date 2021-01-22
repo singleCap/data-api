@@ -1,8 +1,0 @@
-spring:
-  profiles:
-    active: dev
-#    proc
-#    test
-
-server:
-  port: 8888
