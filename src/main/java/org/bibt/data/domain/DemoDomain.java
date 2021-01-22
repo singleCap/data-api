@@ -13,10 +13,14 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class DemoDomain {
-    /** 编号 */
+    /**
+     * 编号
+     */
     @ApiModelProperty(value = "编号")
     private final int id;
-    /** 内容 */
+    /**
+     * 内容
+     */
     @ApiModelProperty(value = "内容")
     private final String content;
 }

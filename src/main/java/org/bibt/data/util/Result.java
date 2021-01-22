@@ -18,22 +18,29 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 public class Result implements Serializable {
-    /** 序列号 */
+    /**
+     * 序列号
+     */
     private static final long serialVersionUID = 1L;
-    /** 返回编码 取值0（成功）和1（失败） */
+    /**
+     * 返回编码 取值0（成功）和1（失败）
+     */
     private int code;
-    /** 返回信息 */
+    /**
+     * 返回信息
+     */
     private String message;
-    /** 返回数据 */
+    /**
+     * 返回数据
+     */
     private Object data;
 
     /**
      * 请求成功
      *
-     * @param data
-     *      返回数据
+     * @param data 返回数据
      * @return Result
-     *      返回成功结果
+     * 返回成功结果
      */
     public static Result ok(Object data) {
         return new Result(0, "ok", data);
@@ -43,9 +50,20 @@ public class Result implements Serializable {
      * 请求失败
      *
      * @return Result
-     *      返回失败结果
+     * 返回失败结果
      */
     public static Result error() {
         return new Result(1, "failure", null);
+    }
+
+    /**
+     * 请求失败
+     *
+     * @param message 消息
+     * @return Result
+     * 返回失败结果
+     */
+    public static Result error(String message) {
+        return new Result(1, message, null);
     }
 }

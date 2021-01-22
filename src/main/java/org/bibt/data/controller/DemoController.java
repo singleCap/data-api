@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/demo")
 @Api(tags = "样例")
 public class DemoController {
-    /** 测试服务 */
+    /**
+     * 测试服务
+     */
     final DemoService demoService;
 
     public DemoController(DemoService demoService) {
@@ -30,8 +32,7 @@ public class DemoController {
     /**
      * 控制实体
      *
-     * @return Result
-     *      返回结果
+     * @return Result 返回结果
      */
     @RequestMapping(value = "/domain", method = RequestMethod.GET)
     @ApiOperation("控制实体")
@@ -39,7 +40,7 @@ public class DemoController {
         Object data = demoService.testDomain();
         if (data != null) {
             return Result.ok(data);
-        }else {
+        } else {
             return Result.error();
         }
     }
@@ -47,12 +48,10 @@ public class DemoController {
     /**
      * 控制mybatis插入
      *
-     * @param id
-     *      编号
-     * @param content
-     *      内容
+     * @param id      编号
+     * @param content 内容
      * @return Result
-     *      返回结果
+     * 返回结果
      */
     @RequestMapping(value = "/mybatis/add", method = RequestMethod.POST)
     @ApiOperation("控制mybatis插入")
@@ -61,7 +60,7 @@ public class DemoController {
         int res = demoService.mybatisAdd(demoDomain);
         if (res == 0) {
             return Result.ok(null);
-        }else {
+        } else {
             return Result.error();
         }
     }
@@ -70,7 +69,7 @@ public class DemoController {
      * 控制mybatis列表
      *
      * @return Result
-     *      返回结果
+     * 返回结果
      */
     @RequestMapping(value = "/mybatis/list", method = RequestMethod.GET)
     @ApiOperation("控制mybatis列表")
@@ -78,7 +77,7 @@ public class DemoController {
         Object data = demoService.mybatisList();
         if (data != null) {
             return Result.ok(data);
-        }else {
+        } else {
             return Result.error();
         }
     }
@@ -87,7 +86,7 @@ public class DemoController {
      * 控制mybatis查询
      *
      * @return Result
-     *      返回结果
+     * 返回结果
      */
     @RequestMapping(value = "/mybatis/get", method = RequestMethod.GET)
     @ApiOperation("控制mybatis查询")
@@ -95,7 +94,7 @@ public class DemoController {
         Object data = demoService.mybatisGet(id);
         if (data != null) {
             return Result.ok(data);
-        }else {
+        } else {
             return Result.error();
         }
     }
@@ -104,7 +103,7 @@ public class DemoController {
      * 控制mybatis更新
      *
      * @return Result
-     *      返回结果
+     * 返回结果
      */
     @RequestMapping(value = "/mybatis/update", method = RequestMethod.PUT)
     @ApiOperation("控制mybatis更新")
@@ -112,7 +111,7 @@ public class DemoController {
         int res = demoService.mybatisUpdate(id, content);
         if (res == 0) {
             return Result.ok(null);
-        }else {
+        } else {
             return Result.error();
         }
     }
@@ -121,7 +120,7 @@ public class DemoController {
      * 控制mybatis删除
      *
      * @return Result
-     *      返回结果
+     * 返回结果
      */
     @RequestMapping(value = "/mybatis/delete", method = RequestMethod.DELETE)
     @ApiOperation("控制mybatis删除")
@@ -129,7 +128,7 @@ public class DemoController {
         int res = demoService.mybatisDelete(id);
         if (res == 0) {
             return Result.ok(null);
-        }else {
+        } else {
             return Result.error();
         }
     }
