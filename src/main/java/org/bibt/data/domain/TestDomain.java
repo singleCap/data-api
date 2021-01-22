@@ -1,5 +1,6 @@
 package org.bibt.data.domain;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,7 +14,9 @@ import lombok.Data;
 @AllArgsConstructor
 public class TestDomain {
     /** 编号 */
+    @ApiModelProperty(value = "编号")
     private final int id;
     /** 内容 */
+    @ApiModelProperty(value = "内容")
     private final String content;
 }
