@@ -1,5 +1,6 @@
 package org.bibt.data.config;
 
+import org.bibt.data.util.Constant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -37,7 +38,7 @@ public class SwaggerConfig {
         // 添加请求参数，我们这里把token作为请求头部参数传入后端
         ParameterBuilder parameterBuilder = new ParameterBuilder();
         List<Parameter> parameters = new ArrayList<>();
-        parameterBuilder.name("X-Access-Token").description("token").modelRef(new ModelRef("string")).parameterType("header")
+        parameterBuilder.name(Constant.TOKEN_HEADER_NAME).description("token").modelRef(new ModelRef("string")).parameterType("header")
                 .required(false).build();
         parameters.add(parameterBuilder.build());
         return new Docket(DocumentationType.SWAGGER_2)
@@ -53,8 +54,7 @@ public class SwaggerConfig {
     /**
      * Swagger2文档网站的信息
      *
-     * @return ApiInfo
-     * Swagger2文档网站的信息
+     * @return ApiInfo Swagger2文档网站的信息
      */
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

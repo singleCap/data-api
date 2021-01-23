@@ -1,4 +1,4 @@
-package org.bibt.data.domain;
+package org.bibt.data.entity;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;

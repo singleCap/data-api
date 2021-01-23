@@ -7,13 +7,16 @@ server:
 # mybatis配置
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
-  type-aliases-package: org.bibt.data.domain
+  type-aliases-package: org.bibt.data.entity
   configuration:
     call-setters-on-nulls: true
     return-instance-for-empty-row: true
+    map-underscore-to-camel-case: true
 
 # 数据库配置
 spring:
+  application:
+    name: Data-Api
   main:
     allow-bean-definition-overriding: true
   datasource:

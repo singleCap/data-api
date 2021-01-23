@@ -2,7 +2,7 @@ package org.bibt.data.controller;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
-import org.bibt.data.util.Result;
+import org.bibt.data.dto.response.JsonResult;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,9 +26,9 @@ public class HttpErrorController implements ErrorController {
 
     @ResponseBody
     @RequestMapping(path = ERROR_PATH)
-    public Result error(HttpServletRequest request, HttpServletResponse response) {
+    public JsonResult error(HttpServletRequest request, HttpServletResponse response) {
         String message = "response status is " + response.getStatus();
-        return Result.error(message);
+        return JsonResult.error(message);
     }
 
     @Override

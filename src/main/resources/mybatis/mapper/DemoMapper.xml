@@ -3,7 +3,7 @@
 <mapper namespace="org.bibt.data.mapper.DemoMapper">
 
     <!--基本返回结构-->
-    <resultMap id="BaseResultMap" type="org.bibt.data.domain.DemoDomain">
+    <resultMap id="BaseResultMap" type="org.bibt.data.entity.DemoDomain">
         <id column="id" property="id" jdbcType="BIGINT" />
         <result column="content" property="content" jdbcType="VARCHAR" />
     </resultMap>
@@ -14,17 +14,17 @@
     </sql>
 
     <!--新增实体-->
-    <insert id="addDomain" parameterType="org.bibt.data.domain.DemoDomain">
+    <insert id="addDomain" parameterType="org.bibt.data.entity.DemoDomain">
         INSERT INTO test(id, content) VALUES(#{id}, #{content});
     </insert>
 
     <!--列表实体-->
-    <select id="listDomain" resultType="org.bibt.data.domain.DemoDomain">
+    <select id="listDomain" resultType="org.bibt.data.entity.DemoDomain">
         SELECT * FROM test;
     </select>
 
     <!--获取实体-->
-    <select id="getDomain" resultType="org.bibt.data.domain.DemoDomain">
+    <select id="getDomain" resultType="org.bibt.data.entity.DemoDomain">
         SELECT * FROM test WHERE id=#{id};
     </select>
 

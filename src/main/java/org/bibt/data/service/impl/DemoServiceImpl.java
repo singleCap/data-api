@@ -1,11 +1,11 @@
 package org.bibt.data.service.impl;
 
 import lombok.extern.slf4j.Slf4j;
-import org.bibt.data.domain.DemoDomain;
+import org.bibt.data.entity.DemoDomain;
 import org.bibt.data.mapper.DemoMapper;
 import org.bibt.data.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * 服务实现类Demo
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @author ZengFanyong
  * @date 2021/1/21
  */
-@Component
+@Service
 @Slf4j
 public class DemoServiceImpl implements DemoService {
 

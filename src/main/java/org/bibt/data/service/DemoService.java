@@ -1,6 +1,6 @@
 package org.bibt.data.service;
 
-import org.bibt.data.domain.DemoDomain;
+import org.bibt.data.entity.DemoDomain;
 
 /**
  * 服务Demo

@@ -1,7 +1,7 @@
 package org.bibt.data.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.bibt.data.domain.DemoDomain;
+import org.bibt.data.entity.DemoDomain;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,8 +25,7 @@ public interface DemoMapper {
     /**
      * 列表实体
      *
-     * @return List<TestDomain>
-     * 列表
+     * @return List<TestDomain> 列表
      */
     List<DemoDomain> listDomain();
 
@@ -34,8 +33,7 @@ public interface DemoMapper {
      * 查询实体
      *
      * @param id 编号
-     * @return List<TestDomain>
-     * 列表
+     * @return List<TestDomain> 列表
      */
     DemoDomain getDomain(@Param("id") int id);
 
@@ -56,8 +54,4 @@ public interface DemoMapper {
      */
     void deleteDomain(@Param("id") int id) throws Exception;
 
-
-//    Integer updateUserById(User user);
-
-//    Integer deleteUserById(Integer id);
 }

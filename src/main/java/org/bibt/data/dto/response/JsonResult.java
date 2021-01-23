@@ -1,8 +1,6 @@
-package org.bibt.data.util;
+package org.bibt.data.dto.response;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
@@ -14,10 +12,8 @@ import java.io.Serializable;
  * @date 2021/1/21
  */
 @Slf4j
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class Result implements Serializable {
+public class JsonResult implements Serializable {
     /**
      * 序列号
      */
@@ -35,6 +31,12 @@ public class Result implements Serializable {
      */
     private Object data;
 
+    private JsonResult(int code, String message, Object data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
     /**
      * 请求成功
      *
@@ -42,8 +44,18 @@ public class Result implements Serializable {
      * @return Result
      * 返回成功结果
      */
-    public static Result ok(Object data) {
-        return new Result(0, "ok", data);
+    public static JsonResult ok(Object data) {
+        return new JsonResult(0, "ok", data);
+    }
+
+    /**
+     * 请求成功
+     *
+     * @return Result
+     * 返回成功结果
+     */
+    public static JsonResult ok() {
+        return new JsonResult(0, "ok", "");
     }
 
     /**
@@ -52,8 +64,8 @@ public class Result implements Serializable {
      * @return Result
      * 返回失败结果
      */
-    public static Result error() {
-        return new Result(1, "failure", null);
+    public static JsonResult error() {
+        return new JsonResult(1, "failure", "");
     }
 
     /**
@@ -63,7 +75,7 @@ public class Result implements Serializable {
      * @return Result
      * 返回失败结果
      */
-    public static Result error(String message) {
-        return new Result(1, message, null);
+    public static JsonResult error(String message) {
+        return new JsonResult(1, message, "");
     }
 }
