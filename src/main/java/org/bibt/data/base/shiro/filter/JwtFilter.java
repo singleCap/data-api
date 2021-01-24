@@ -1,6 +1,7 @@
 package org.bibt.data.base.shiro.filter;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.bibt.data.base.shiro.token.JwtToken;
@@ -50,10 +51,12 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         log.info("进入JwtFilter类中...");
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader(Constant.TOKEN_HEADER_NAME);
-        log.info("获取到的token是:{}",token);
+        log.info("获取到的token是:{}", token);
         // 判断token是否存在
-        if (token == null) {
+        if (StringUtils.isBlank(token)) {
             return false;
+            // 用户userId=10001, userName=admin, roleName=admin 管理员的token
+            // token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQxNjMwODYsInVzZXJJZCI6IjEwMDAxIn0.JUgmfgDYqWLoLOObDvy79rJOBJqPUtmrY6mMaFH01eQ";
         }
         JwtToken jwtToken = new JwtToken(token);
         try{

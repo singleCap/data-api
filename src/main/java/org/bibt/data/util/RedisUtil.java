@@ -13,8 +13,10 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author lixiao
- * @date 2019/7/31 19:13
+ * Redis工具
+ *
+ * @author ZengFanyong
+ * @date 2021/1/23
  */
 @Component
 public class RedisUtil {

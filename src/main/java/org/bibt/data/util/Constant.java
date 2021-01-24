@@ -14,7 +14,7 @@ public class Constant {
     /**
      * token签名
      */
-    public static final String TOKEN_SECRET = "bibt";
+    public static final String TOKEN_SECRET = "org.bibt.com";
     /**
      * token的载荷中盛放的信息 只盛放一个userId 其余什么也不再盛放
      */

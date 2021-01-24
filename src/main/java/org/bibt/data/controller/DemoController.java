@@ -2,6 +2,8 @@ package org.bibt.data.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.bibt.data.entity.DemoDomain;
 import org.bibt.data.service.DemoService;
 import org.bibt.data.dto.response.JsonResult;
@@ -34,6 +36,7 @@ public class DemoController {
      *
      * @return Result 返回结果
      */
+    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
     @RequestMapping(value = "/domain", method = RequestMethod.GET)
     @ApiOperation("控制实体")
     public JsonResult domain() {
@@ -52,6 +55,7 @@ public class DemoController {
      * @param content 内容
      * @return Result 返回结果
      */
+    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
     @RequestMapping(value = "/mybatis/add", method = RequestMethod.POST)
     @ApiOperation("控制mybatis插入")
     public JsonResult mybatisAdd(@RequestParam int id, @RequestParam String content) {
@@ -60,7 +64,7 @@ public class DemoController {
         if (res == 0) {
             return JsonResult.ok(null);
         } else {
-            return JsonResult.error();
+            return JsonResult.error("插入失败");
         }
     }
 
@@ -69,15 +73,11 @@ public class DemoController {
      *
      * @return Result 返回结果
      */
+    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
     @RequestMapping(value = "/mybatis/list", method = RequestMethod.GET)
     @ApiOperation("控制mybatis列表")
     public JsonResult mybatisList() {
-        Object data = demoService.mybatisList();
-        if (data != null) {
-            return JsonResult.ok(data);
-        } else {
-            return JsonResult.error();
-        }
+        return JsonResult.ok(demoService.mybatisList());
     }
 
     /**
@@ -85,14 +85,15 @@ public class DemoController {
      *
      * @return Result 返回结果
      */
+    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
     @RequestMapping(value = "/mybatis/get", method = RequestMethod.GET)
     @ApiOperation("控制mybatis查询")
     public JsonResult mybatisGet(@RequestParam int id) {
-        Object data = demoService.mybatisGet(id);
+        final Object data = demoService.mybatisGet(id);
         if (data != null) {
-            return JsonResult.ok(data);
-        } else {
-            return JsonResult.error();
+            return JsonResult.ok(demoService.mybatisGet(id));
+        }else {
+            return JsonResult.error("id = " + id + "不存在");
         }
     }
 
@@ -101,6 +102,7 @@ public class DemoController {
      *
      * @return Result 返回结果
      */
+    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
     @RequestMapping(value = "/mybatis/update", method = RequestMethod.PUT)
     @ApiOperation("控制mybatis更新")
     public JsonResult mybatisUpdate(@RequestParam int id, @RequestParam String content) {
@@ -108,7 +110,7 @@ public class DemoController {
         if (res == 0) {
             return JsonResult.ok(null);
         } else {
-            return JsonResult.error();
+            return JsonResult.error("更新失败");
         }
     }
 
@@ -117,6 +119,7 @@ public class DemoController {
      *
      * @return Result 返回结果
      */
+    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
     @RequestMapping(value = "/mybatis/delete", method = RequestMethod.DELETE)
     @ApiOperation("控制mybatis删除")
     public JsonResult mybatisDelete(@RequestParam int id) {
@@ -124,7 +127,7 @@ public class DemoController {
         if (res == 0) {
             return JsonResult.ok(null);
         } else {
-            return JsonResult.error();
+            return JsonResult.error("删除失败");
         }
     }
 }

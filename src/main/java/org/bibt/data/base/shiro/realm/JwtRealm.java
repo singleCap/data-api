@@ -22,8 +22,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * @author : wuwensheng
- * @date : 10:59 2020/7/1
+ * Jwt域
+ *
+ * @author ZengFanyong
+ * @date 2021/1/23
  */
 @Slf4j
 public class JwtRealm extends AuthorizingRealm {

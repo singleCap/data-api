@@ -55,7 +55,7 @@ public class JsonResult implements Serializable {
      * 返回成功结果
      */
     public static JsonResult ok() {
-        return new JsonResult(0, "ok", "");
+        return new JsonResult(0, "ok", null);
     }
 
     /**
@@ -65,7 +65,7 @@ public class JsonResult implements Serializable {
      * 返回失败结果
      */
     public static JsonResult error() {
-        return new JsonResult(1, "failure", "");
+        return new JsonResult(1, "failure", null);
     }
 
     /**
@@ -76,6 +76,6 @@ public class JsonResult implements Serializable {
      * 返回失败结果
      */
     public static JsonResult error(String message) {
-        return new JsonResult(1, message, "");
+        return new JsonResult(1, message, null);
     }
 }

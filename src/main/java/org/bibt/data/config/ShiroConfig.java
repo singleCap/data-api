@@ -100,21 +100,26 @@ public class ShiroConfig {
         // 设置 SecurityManager
         bean.setSecurityManager(securityManager);
         // 设置未登录跳转url
-        bean.setUnauthorizedUrl("/user/unLogin");
+        bean.setUnauthorizedUrl("/sys/v1/user/unLogin");
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/user/passwordLogin", "anon");
-        filterMap.put("/user/verificationCodeLogin", "anon");
-        filterMap.put("/user/register", "anon");
+        filterMap.put("/sys/v1/user/passwordLogin", "anon");
+        filterMap.put("/sys/v1/user/verificationCodeLogin", "anon");
+        filterMap.put("/sys/v1/user/register", "anon");
         bean.setFilterChainDefinitionMap(filterMap);
         Map<String, Filter> filter = new HashMap<>(1);
         filter.put("jwt", new JwtFilter());
         bean.setFilters(filter);
+        // 过滤链定义，从上向下顺序执行，一般将放在最为下边
         filterMap.put("/**", "jwt");
         bean.setFilterChainDefinitionMap(filterMap);
         return bean;
     }
 
-
+    /**
+     * 自定义多域验证器
+     *
+     * @return 自定义多域验证器
+     */
     @Bean
     public UserModularRealmAuthenticator userModularRealmAuthenticator() {
         //自己重写的ModularRealmAuthenticator

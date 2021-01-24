@@ -5,13 +5,16 @@
 
 ### 2. 目录信息
 ```
-config          配置信息类
-controller      资源控制类
-domain          实体类
-enums           枚举类
-mapper          映射类
-service         服务类
-util            工具类
+base            基础设施包
+config          配置信息包
+controller      资源控制包
+dto             参数封装包
+entity          实体包
+enums           枚举包
+exception       异常包
+mapper          映射包
+service         服务包
+util            工具包
 ```
 
 ### 3. Swagger调试信息
@@ -25,4 +28,10 @@ util            工具类
 4. 如果有多个参数，则需要使用多个@ApiImplicitParam注解来描述，多个@ApiImplicitParam注解需要放在一个@ApiImplicitParams注解中。
 5. 需要注意的是，@ApiImplicitParam注解中虽然可以指定参数是必填的，但是却不能代替@RequestParam(required = true)，前者的必填只是在Swagger2框架内必填，抛弃了Swagger2，这个限制就没用了，所以假如开发者需要指定一个参数必填，@RequestParam(required = true)注解还是不能省略。
 6. 如果参数是一个对象（例如上文的更新接口），对于参数的描述也可以放在实体类中。
+```
+
+### 5. token认证
+```
+请求头中的token名称：X-Access-Token
+对外提供通用token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQxNjMwODYsInVzZXJJZCI6IjEwMDAxIn0.JUgmfgDYqWLoLOObDvy79rJOBJqPUtmrY6mMaFH01eQ
 ```

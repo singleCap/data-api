@@ -4,6 +4,10 @@ server:
   servlet:
     context-path: /
 
+# 日志配置
+logging:
+  config: config/logback-spring.xml
+
 # mybatis配置
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml

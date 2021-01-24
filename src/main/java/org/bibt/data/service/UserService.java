@@ -16,7 +16,7 @@ public interface UserService {
      * @param userName  用户名称
      * @return User     用户信息
      */
-    public User selectByName(String userName);
+    User selectByName(String userName);
 
     /**
      * 通过用户编号查询用户信息
@@ -24,7 +24,7 @@ public interface UserService {
      * @param userId    用户名称
      * @return User     用户信息
      */
-    public User selectById(String userId);
+    User selectById(String userId);
 
     /**
      * 用户登录
@@ -33,7 +33,7 @@ public interface UserService {
      * @param passWord  用户密码
      * @return String   token凭证
      */
-    public String login(String userId, String passWord);
+    String login(String userId, String passWord);
 
     /**
      * 注册用户
@@ -43,21 +43,21 @@ public interface UserService {
      * @param password  用户密码
      * @param remark    用户备注
      */
-    public void register(String userId, String userName, String password, String remark);
+    void register(String userId, String userName, String password, String remark);
 
     /**
      * 新增用户
      *
      * @param user  用户信息
      */
-    public void insetUser(User user);
+    void insetUser(User user);
 
     /**
      * 发送验证码
      *
      * @param userId    用户编号
      */
-    public void sendVerificationCode(String userId);
+    void sendVerificationCode(String userId);
 
     /**
      * 使用验证码登录
@@ -66,6 +66,6 @@ public interface UserService {
      * @param code      验证码
      * @return String   登录成功后的用户token
      */
-    public String verificationCodeLogin(String userId, String code);
+    String verificationCodeLogin(String userId, String code);
 
 }

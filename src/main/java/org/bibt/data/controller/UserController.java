@@ -40,11 +40,9 @@ public class UserController {
      * @return 用户权限
      * @throws Exception 异常
      */
-    @RequiresRoles(value = {"admin","common"}, logical = Logical.OR)
-    @RequiresPermissions(value = {"resetPassword","queryMyUserInfo"}, logical = Logical.OR)
+    @RequiresRoles(value = {"admin", "common"}, logical = Logical.OR)
     @GetMapping(value = "/user/getUserPermission")
     public JsonResult getUserPermission() throws Exception {
-        // TODO: 2021/1/23 待完成
         log.info("访问接口getUserPermission成功");
         return JsonResult.ok();
     }
@@ -58,7 +56,6 @@ public class UserController {
     @RequiresRoles(value = {"admin"})
     @GetMapping(value = "/user/getUser")
     public JsonResult getUser() throws Exception {
-        // TODO: 2021/1/23 待完成
         log.info("访问getUser接口成功");
         return JsonResult.ok();
     }
@@ -70,7 +67,7 @@ public class UserController {
      * @return 用户登录后的token
      */
     @PostMapping(value = "/user/passwordLogin",name = "用户密码登录")
-    public JsonResult passwordLogin(@RequestBody @Valid PassWordLoginDTO passWordLoginDTO){
+    public JsonResult passwordLogin(@RequestBody @Valid PassWordLoginDTO passWordLoginDTO) {
         log.info("传递的请求参数:{}",passWordLoginDTO);
         try {
             String token = userService.login(passWordLoginDTO.getUserId(), passWordLoginDTO.getPassword());
@@ -96,7 +93,8 @@ public class UserController {
     @PostMapping(value = "/user/register",name = "用户注册")
     public JsonResult userRegister(@RequestBody @Valid RegisterDTO registerDTO){
         try {
-            userService.register(registerDTO.getUserId(),registerDTO.getUserName(),registerDTO.getPassword(),registerDTO.getRemark());
+            userService.register(registerDTO.getUserId(), registerDTO.getUserName(), registerDTO.getPassword(),
+                    registerDTO.getRemark());
             return JsonResult.ok();
         }catch (BusinessException e){
             throw e;

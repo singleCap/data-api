@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler
     @ResponseBody
-    public JsonResult ErrorHandler(AuthorizationException e) {
+    public JsonResult errorHandler(AuthorizationException e) {
         log.error("权限校验失败！", e);
         return JsonResult.error(BusinessErrorEnum.NO_AUTH.getCode() + ":" + BusinessErrorEnum.NO_AUTH.getMsg());
     }
@@ -48,14 +48,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler
     @ResponseBody
-    public JsonResult ErrorHandler(AuthenticationException e) {
+    public JsonResult errorHandler(AuthenticationException e) {
         log.error("用户名或密码错误,用户登录失败！", e);
         return JsonResult.error(BusinessErrorEnum.ERROR_ACCOUNT.getCode() + ":" + BusinessErrorEnum.ERROR_ACCOUNT.getMsg());
     }
 
     @ExceptionHandler
     @ResponseBody
-    public JsonResult ErrorHandler(IncorrectCredentialsException e) {
+    public JsonResult errorHandler(IncorrectCredentialsException e) {
         log.error("用户名或密码错误,用户登录失败！", e);
         return JsonResult.error(BusinessErrorEnum.ERROR_ACCOUNT.getCode() + ":" + BusinessErrorEnum.ERROR_ACCOUNT.getMsg());
     }

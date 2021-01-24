@@ -8,7 +8,7 @@ import org.springframework.context.ApplicationEvent;
 import java.io.Serializable;
 
 /**
- * 用户
+ * 基础事件
  *
  * @author ZengFanyong
  * @date 2021/1/23
