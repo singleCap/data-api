@@ -32,6 +32,18 @@ util            工具包
 
 ### 5. token认证
 ```
-请求头中的token名称：X-Access-Token
-对外提供通用token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQxNjMwODYsInVzZXJJZCI6IjEwMDAxIn0.JUgmfgDYqWLoLOObDvy79rJOBJqPUtmrY6mMaFH01eQ
+1. 请求头中的token名称：X-Access-Token
+2. 对外提供common权限的通用token：eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQyMjAxMzcsInVzZXJJZCI6IjEwMDAyIn0.qKNOxWLO_MJS38EZduaVAqDUd1mDNvhLUPJcboA_IPo
+3. 用户注册流程：
+    使用主用户（admin）的token访问http://localhost:8888/sys/v1/user/register接口
+    示例：
+    a. 请求头：
+    X-Access-Token:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MTQxNjMwODYsInVzZXJJZCI6IjEwMDAxIn0.JUgmfgDYqWLoLOObDvy79rJOBJqPUtmrY6mMaFH01eQ
+    b. 请求体：
+    {
+      "password": "string",
+      "remark": "string",
+      "userId": "string",
+      "userName": "string"
+    }
 ```

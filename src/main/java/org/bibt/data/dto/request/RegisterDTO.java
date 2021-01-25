@@ -1,8 +1,6 @@
 package org.bibt.data.dto.request;
 
 import lombok.Data;
-import lombok.ToString;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,7 +12,6 @@ import javax.validation.constraints.Size;
  * @date 2021/1/21
  */
 @Data
-@ToString
 public class RegisterDTO {
 
     /**

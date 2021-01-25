@@ -4,7 +4,6 @@ import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authz.annotation.Logical;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.bibt.data.dto.request.CodeLoginDTO;
 import org.bibt.data.dto.request.PassWordLoginDTO;
@@ -16,7 +15,6 @@ import org.bibt.data.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 /**
@@ -90,6 +88,7 @@ public class UserController {
      * @param registerDTO   用户注册信息
      * @return 注册是否成功
      */
+    @RequiresRoles(value = {"admin"})
     @PostMapping(value = "/user/register",name = "用户注册")
     public JsonResult userRegister(@RequestBody @Valid RegisterDTO registerDTO){
         try {

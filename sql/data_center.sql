@@ -69,7 +69,7 @@ CREATE TABLE `sys_role` (
 
 LOCK TABLES `sys_role` WRITE;
 /*!40000 ALTER TABLE `sys_role` DISABLE KEYS */;
-INSERT INTO `sys_role` VALUES ('100','admin',''),('200','common','');
+INSERT INTO `sys_role` VALUES ('100','admin','管理员'),('200','common','普通用户');
 /*!40000 ALTER TABLE `sys_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
-INSERT INTO `sys_user` VALUES (1,'10001','admin','202cb962ac59075b964b07152d234b70',''),(2,'10002','zengfanyong','f10bfea990b657f6e8355c6e3ee67e2d',''),(3,'10003','liujia','c4dbde004d409a733e4a7c8b00466613',''),(11,'15874952683','zengfanyong','c0a0af8a1dc96df1c5a8bfb7143e946e','曾凡涌');
+INSERT INTO `sys_user` VALUES (1,'10001','admin','202cb962ac59075b964b07152d234b70','管理员'),(2,'10002','common','f10bfea990b657f6e8355c6e3ee67e2d','普通用户');
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +146,7 @@ CREATE TABLE `sys_user_role_relation` (
 
 LOCK TABLES `sys_user_role_relation` WRITE;
 /*!40000 ALTER TABLE `sys_user_role_relation` DISABLE KEYS */;
-INSERT INTO `sys_user_role_relation` VALUES (1,'10001','100'),(2,'10002','200'),(3,'10003','200'),(11,'15874952683','200');
+INSERT INTO `sys_user_role_relation` VALUES (1,'10001','100'),(2,'10002','200');
 /*!40000 ALTER TABLE `sys_user_role_relation` ENABLE KEYS */;
 UNLOCK TABLES;
 

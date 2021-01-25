@@ -2,7 +2,6 @@ package org.bibt.data.entity;
 
 import lombok.*;
 import lombok.experimental.Accessors;
-
 import javax.persistence.Table;
 
 /**
@@ -15,7 +14,7 @@ import javax.persistence.Table;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = false,of = "userId")
+@EqualsAndHashCode(callSuper = false, of = "userId")
 @Builder
 @Table(name = "sys_user")
 @Accessors(chain = true)
